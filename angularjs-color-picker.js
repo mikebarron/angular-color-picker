@@ -4,7 +4,7 @@
  *
  * Copyright 2015 ruhley
  *
- * 2015-12-04 11:47:46
+ * 2015-12-07 09:53:51
  *
  */
 if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){
@@ -104,12 +104,12 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
                     }
                 };
 
-                $scope.tabOutDismiss = function() {
-                    var e = event; // for trans-browser compatibility
+                $scope.tabOutDismiss = function(evt) {
+                    var e = event || evt; // for trans-browser compatibility
                     var charCode = e.which || e.keyCode;
 
                     // Tab key
-                    if (charCode == 9 ) {
+                    if (charCode === 9 ) {
                         $scope.log('Color Picker: Tab Dismiss');
                         $scope.visible = false;
                     }
