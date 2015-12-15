@@ -4,7 +4,7 @@
  *
  * Copyright 2015 ruhley
  *
- * 2015-12-07 09:53:51
+ * 2015-12-15 10:25:57
  *
  */
 if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){
@@ -105,7 +105,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
                 };
 
                 $scope.tabOutDismiss = function(evt) {
-                    var e = event || evt; // for trans-browser compatibility
+                    var e = evt || event; // for trans-browser compatibility
                     var charCode = e.which || e.keyCode;
 
                     // Tab key
@@ -463,7 +463,7 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
 
 angular.module('color.picker').run(['$templateCache', function($templateCache) {
     $templateCache.put('template/color-picker/directive.html',
-        '<div class="color-picker-wrapper" ng-keydown="tabOutDismiss()" ng-class="{\'color-picker-swatch-only\': config.swatchOnly}">\n' +
+        '<div class="color-picker-wrapper" ng-keydown="tabOutDismiss($event)" ng-class="{\'color-picker-swatch-only\': config.swatchOnly}">\n' +
         '   <div ng-class="{\'input-group\': config.swatchBootstrap && config.swatch}">\n' +
         '       <span ng-if="config.swatchPos === \'left\'" ng-attr-style="background-color: {{swatchColor}};" class="color-picker-swatch" ng-click="focus();show()" ng-show="config.swatch" ng-class="{\'color-picker-swatch-left\': config.swatchPos !== \'right\', \'color-picker-swatch-right\': config.swatchPos === \'right\', \'input-group-addon\': config.swatchBootstrap}"></span>\n' +
         '       <input class="color-picker-input form-control" type="text" ng-model="ngModel" size="7" ng-focus="show()" ng-class="{\'color-picker-input-swatch\': config.swatch && !config.swatchOnly && config.swatchPos === \'left\'}">\n' +
